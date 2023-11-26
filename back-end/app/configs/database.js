@@ -1,0 +1,17 @@
+module.exports = {
+  usename: "vantrinh",
+  password: "trinh123",
+  database: "project",
+  col_items: "items",
+  col_product_sold: "product_solds",
+  col_product_variant: "product_variant",
+  col_category: "categories",
+  col_user: "users",
+  col_comments: "comments",
+  col_vatiants: "variants",
+  col_vatiant_value: "variant_values",
+  col_images: "images",
+  col_copons_type: "cuponType",
+  col_cart: "cart",
+  col_cart_product: "cart_product",
+};
