@@ -3,9 +3,17 @@ const databaseConfig = require(__path_configs + "database");
 
 var schema = new mongoose.Schema(
   {
-    userId: String,
-    content: String,
     productId: String,
+    content: String,
+    isActive: Boolean,
+    userInfo: {
+      userId: String,
+      userName: String,
+      displayName: String,
+      photoUrl: String,
+      role: Number,
+    },
+
   },
   { collection: databaseConfig.col_comments }
 );
