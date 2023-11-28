@@ -83,7 +83,7 @@ export default function GeneralApp() {
               </Grid>
               {!!info.listUser ? (
                 <Grid item xs={12} lg={12}>
-                  <AppNewInvoice mode={'user'} getListUser={getListUser} listData={info.listUser} />
+                  <AppNewInvoice mode={'user'} title={'New Invoice'} getListUser={getListUser} listData={info.listUser} />
                 </Grid>
               ) : null}
               <Grid item xs={12} md={6} lg={4}>

@@ -43,7 +43,7 @@ export default function EcommerceBestSalesman({ listCupon = [] }) {
 
   return (
     <Card sx={{ pb: 3 }}>
-      <CardHeader title="Best Salesman" sx={{ mb: 3 }} />
+      <CardHeader title="List Cupon" sx={{ mb: 3 }} />
         <TableContainer sx={{ maxHeight: 280 }}>
           <Table stickyHeader aria-label="sticky table">
             <TableHead>

@@ -121,13 +121,14 @@ export default function AppNewInvoice({
   listData,
   getListUser,
   mode,
+  title,
   listTitleTable = ['Username', 'Image', 'Display Name', 'Email', 'Phone', 'Address', 'Status']
 }) {
   const theme = useTheme();
 
   return (
     <Card>
-      <CardHeader title="New Invoice" sx={{ mb: 3 }} />
+      <CardHeader title={title} sx={{ mb: 3 }} />
       <Scrollbar>
         <TableContainer sx={{ minWidth: 720 }}>
           <Table>

@@ -52,7 +52,7 @@ export default function UserCarts() {
           ]}
         />
         <Grid item xs={12} lg={12}>
-          <AppNewInvoice listTitleTable={listTitleTable} listData={listCarts} mode={'cart'} />
+          <AppNewInvoice title={'List order'} listTitleTable={listTitleTable} listData={listCarts} mode={'cart'} />
         </Grid>
       </Container>
     </Page>

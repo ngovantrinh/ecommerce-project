@@ -18,6 +18,7 @@ import {
   IconButton,
   Button
 } from '@material-ui/core';
+import CollapsibleTableRowComment from './CollapsibleTableRowComment';
 
 // ----------------------------------------------------------------------
 
@@ -39,8 +40,7 @@ CollapsibleTable.propTypes = {
   }).isRequired
 };
 
-export default function CollapsibleTable({ row, handleDeleteProduct }) {
-  console.log(row, 'row');
+export default function CollapsibleTable({ row, handleDeleteProduct, fetchProducts }) {
   const [open, setOpen] = useState(false);
 
   // type: key, value
@@ -138,6 +138,7 @@ export default function CollapsibleTable({ row, handleDeleteProduct }) {
                 </Table>
               </Box>
             )}
+            {row?.comment?.length ? <CollapsibleTableRowComment fetchProducts={fetchProducts} comments={row?.comment} /> : null}
           </Collapse>
         </TableCell>
       </TableRow>

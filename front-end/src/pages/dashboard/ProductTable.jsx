@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 // material
 import { styled } from '@material-ui/core/styles';
 import {
@@ -35,7 +35,7 @@ const RootStyle = styled(Page)(({ theme }) => ({
 }));
 
 function ProductTable() {
-  const { listProduct, loading, handleDeleteProduct } = useProduct({ limitItem: 1000 });
+  const { listProduct, loading, handleDeleteProduct,fetchProducts } = useProduct({ limitItem: 1000 });
   const navigate = useNavigate();
 
   const goToCreate = () => {
@@ -84,7 +84,7 @@ function ProductTable() {
                     </TableHead>
                     <TableBody>
                       {listProduct?.map((row) => (
-                        <CollapsibleTableRow handleDeleteProduct={handleDeleteProduct} key={row.name} row={row} />
+                        <CollapsibleTableRow fetchProducts={fetchProducts} handleDeleteProduct={handleDeleteProduct} key={row.name} row={row} />
                       ))}
                     </TableBody>
                   </Table>

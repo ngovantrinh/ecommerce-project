@@ -1,0 +1,46 @@
+p{
+    padding: 0;
+    margin: 0;
+}
+
+.review{
+    align-items: flex-start;
+    text-align: left;
+}
+.review .input-review{
+    text-align: left;
+}
+
+.review .input-review .input-title{
+    padding: 10px 0 5px 0;
+    font-size: 13px;
+    color: #242424;
+}
+
+.require{
+    color: #E01020;
+}
+
+.review-title{
+    text-align: left;
+    text-transform: uppercase;
+    font-size: 14px;
+    line-height: inherit;
+    font-weight: 600;
+}
+
+.list-review .avatar{
+    margin-bottom: auto;
+    max-width: 60px;
+    border-radius: 50%;
+    margin-inline-end: 20px;
+    overflow: hidden;
+}
+.list-review .review-item{
+    padding: 15px 0 25px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.105);
+    justify-content: unset;
+}
+.list-review .review-item:last-child{
+    border-bottom: 0px;
+}
