@@ -31,7 +31,7 @@ const PERCENT = 0.06;
 const TOTAL_SALES = 4876;
 const CHART_DATA = [{ data: [40, 70, 75, 70, 50, 28, 7, 64, 38, 27] }];
 
-export default function EcommerceSalesProfit() {
+export default function EcommerceSalesProfit({salesProfit = 0}) {
   const theme = useTheme();
   const chartOptions = merge(BaseOptionChart(), {
     colors: [theme.palette.chart.red[0]],
@@ -56,7 +56,7 @@ export default function EcommerceSalesProfit() {
           Sales Profit
         </Typography>
         <Typography variant="h3" gutterBottom>
-          {fNumber(TOTAL_SALES)}
+          {fNumber(salesProfit)}VND
         </Typography>
 
         <Stack direction="row" alignItems="center" flexWrap="wrap">

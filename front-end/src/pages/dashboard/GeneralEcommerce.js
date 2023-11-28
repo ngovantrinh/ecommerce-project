@@ -31,7 +31,7 @@ export default function GeneralEcommerce() {
   const getTotalSold = useCallback(async () => {
     try {
       const response = await axiosClient.get('/cart/sold/total');
-      setTotalSold(response.data.quantity);
+      setTotalSold(response.data);
     } catch (error) {
       console.log(error)
     }
@@ -63,13 +63,13 @@ export default function GeneralEcommerce() {
           </Grid>
 
           <Grid item xs={12} md={4}>
-            <EcommerceProductSold totalSold={totalSold}/>
+            <EcommerceProductSold totalSold={totalSold.quantity}/>
           </Grid>
           <Grid item xs={12} md={4}>
             <EcommerceTotalBalance />
           </Grid>
           <Grid item xs={12} md={4}>
-            <EcommerceSalesProfit />
+            <EcommerceSalesProfit salesProfit={totalSold.salesProfit}/>
           </Grid>
 
           <Grid item xs={12} md={6} lg={4}>

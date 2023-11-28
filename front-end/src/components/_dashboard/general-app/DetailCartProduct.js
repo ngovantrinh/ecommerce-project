@@ -70,7 +70,7 @@ const DetailCartProduct = ({ item }) => {
             variant={theme.palette.mode === 'light' ? 'ghost' : 'filled'}
             color={item.status === 1 ? 'primary' : item.status === 2 ? 'success' : 'error'}
           >
-            {item.status === 1 ? 'Đang giao' : item.status === 2 ? 'Đã nhận' : 'Đã Hủy'}
+            {item.status === 1 ? 'delivered' : item.status === 2 ? 'Received' : 'Cancelled'}
           </Label>
         </TableCell>
         {item?.status !== 2 && item?.status !== 3 ? (
