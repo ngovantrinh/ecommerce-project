@@ -11,7 +11,8 @@ import {
   TableHead,
   CardHeader,
   Typography,
-  TableContainer
+  TableContainer,
+  Button
 } from '@material-ui/core';
 // utils
 import { fCurrency } from '../../../utils/formatNumber';
@@ -19,6 +20,8 @@ import mockData from '../../../utils/mock-data';
 //
 import Label from '../../Label';
 import Scrollbar from '../../Scrollbar';
+import { axiosClient } from 'src/services';
+import { useSnackbar } from 'notistack5';
 
 // ----------------------------------------------------------------------
 
@@ -38,34 +41,55 @@ const MOCK_SALES = [...Array(5)].map((_, index) => ({
 
 // ----------------------------------------------------------------------
 
-export default function EcommerceBestSalesman({ listCupon = [] }) {
+export default function EcommerceBestSalesman({ listCupon = [] , getListCupon}) {
   const theme = useTheme();
+  const { enqueueSnackbar } = useSnackbar();
+
+  const deleteCupon = async (id) => {
+    try {
+      const { success } = await axiosClient.delete(`/cupons/delete/${id}`);
+      if (success) {
+        getListCupon()
+        enqueueSnackbar('Delete success', { variant: 'success' });
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  };
 
   return (
     <Card sx={{ pb: 3 }}>
       <CardHeader title="List Cupon" sx={{ mb: 3 }} />
-        <TableContainer sx={{ maxHeight: 280 }}>
-          <Table stickyHeader aria-label="sticky table">
-            <TableHead>
-              <TableRow>
-                <TableCell>Cupon Code</TableCell>
-                <TableCell>Name</TableCell>
-                <TableCell>value</TableCell>
+      <TableContainer sx={{ maxHeight: 280 }}>
+        <Table stickyHeader aria-label="sticky table">
+          <TableHead>
+            <TableRow>
+              <TableCell>Cupon Code</TableCell>
+              <TableCell>Name</TableCell>
+              <TableCell>value</TableCell>
+              <TableCell></TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {listCupon?.map((row) => (
+              <TableRow key={row.name}>
+                <TableCell>{row.cuponId}</TableCell>
+                <TableCell>{row.name}</TableCell>
+                <TableCell>{row.value}%</TableCell>
+                <TableCell>
+                  <Button
+                    variant="contained"
+                    color="error"
+                    onClick={() => deleteCupon(row._id)}
+                  >
+                    Delete
+                  </Button>
+                </TableCell>
               </TableRow>
-            </TableHead>
-            <TableBody>
-              {listCupon?.map((row) => (
-                <TableRow key={row.name}>
-                  <TableCell>{row.cuponId}</TableCell>
-                  <TableCell>
-                    {row.name}
-                  </TableCell>
-                  <TableCell>{row.value}%</TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </TableContainer>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
     </Card>
   );
 }

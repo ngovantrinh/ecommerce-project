@@ -89,7 +89,7 @@ export default function GeneralEcommerce() {
           </Grid> */}
 
           <Grid item xs={12} md={6} lg={8}>
-            <EcommerceBestSalesman listCupon={listCupon}/>
+            <EcommerceBestSalesman listCupon={listCupon} getListCupon={getListCupon}/>
           </Grid>
 
           <Grid item xs={12} md={6} lg={4}>
